@@ -7,11 +7,11 @@ ADD . rhodopsin-micros/ips
 # Setting up working directory
 WORKDIR rhodopsin-micros/ips
 
-# Get godeps for managing and restoring dependencies
-RUN go get github.com/tools/godep
+# Get dep for managing and restoring dependencies
+RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
-# Restore godep dependencies
-RUN godep restore
+# Check dependencies
+RUN dep ensure
 
 # Build the taskmanager command inside the container.
 RUN go install rhodopsin-micros/ips
