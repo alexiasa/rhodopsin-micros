@@ -13,10 +13,10 @@ RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 # Check dependencies
 RUN dep ensure
 
-# Build the taskmanager command inside the container.
+# Build ips inside the container.
 RUN go install rhodopsin-micros/ips
 
-# Run the taskmanager command when the container starts.
+# Run ips when the container starts.
 ENTRYPOINT rhodopsin-micros/ips
 
 # Service listens on port 8080.
