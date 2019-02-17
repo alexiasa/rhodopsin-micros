@@ -43,3 +43,4 @@ func createDbSession() {
 		log.Fatalf("[createDbSession]: %s\n", err)
 	}
 }
+

@@ -1,3 +1,6 @@
 build:
   docker:
     web: ips/Dockerfile
+
+run:
+  web: docker un

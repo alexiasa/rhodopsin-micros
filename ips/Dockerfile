@@ -17,7 +17,10 @@ RUN dep ensure
 RUN go install $GOPATH/src/rhodopsin-micros/ips
 
 # Run ips when the container starts.
-ENTRYPOINT $GOPATH/src/rhodopsin-micros/ips
+# ENTRYPOINT $GOPATH/src/rhodopsin-micros/ips
+CMD $GOPATH/src/rhodopsin-micros/ips
+
 
 # Service listens on port 8080.
 EXPOSE 8080
+
