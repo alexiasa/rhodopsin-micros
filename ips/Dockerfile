@@ -1,26 +1,28 @@
 # golang image where workspace (GOPATH) configured at /go.
 FROM golang
 
+# Get dep for managing and restoring dependencies
+RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+
 # Copy the local package files to the container’s workspace.
-ADD . $GOPATH/src/rhodopsin-micros/ips
+COPY . $GOPATH/src/rhodopsin-micros/ips
+
+# Take ownership of copied files
+RUN chown -R ${USER:=$(/usr/bin/id -run)}:$USER $GOPATH/src/
 
 # Setting up working directory
 WORKDIR $GOPATH/src/rhodopsin-micros/ips
 
-# Get dep for managing and restoring dependencies
-RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+# Check dependencies and install ips inside the container.
+RUN dep ensure && go build .
 
-# Check dependencies
-RUN dep ensure
-
-# Build ips inside the container.
-RUN go install $GOPATH/src/rhodopsin-micros/ips
+# Make executables executable.
+# RUN chmod +x $GOPATH/src/rhodopsin-micros/ips/*
 
 # Run ips when the container starts.
-# ENTRYPOINT $GOPATH/src/rhodopsin-micros/ips
-CMD $GOPATH/src/rhodopsin-micros/ips
+ENTRYPOINT $GOPATH/src/rhodopsin-micros/ips/ips
+#CMD $GOPATH/src/rhodopsin-micros/ips
 
-
-# Service listens on port 8080.
-EXPOSE 8080
+# Service listens on port 80.
+EXPOSE 80
 
