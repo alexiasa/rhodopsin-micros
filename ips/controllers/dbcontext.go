@@ -17,7 +17,7 @@ func (c *Context) Close() {
 
 // Returns mgo.collection for the given name
 func (c *Context) DbCollection(name string) *mgo.Collection {
-	return c.MongoSession.DB(os.Getenv("dbname")).C(name)
+	return c.MongoSession.DB(os.Getenv("DBNAME")).C(name)
 }
 
 // Create a new Context object for each HTTP request

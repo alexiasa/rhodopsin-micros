@@ -1,6 +1,5 @@
 package common
 
-// todo: put these vars into heroku config vars: mongohost, mongouser, mongopass, dbname
 
 import (
 	"gopkg.in/mgo.v2"
@@ -18,9 +17,9 @@ func GetSession() *mgo.Session {
 	if session == nil {
 		var err error
 		session, err = mgo.DialWithInfo(&mgo.DialInfo{
-			Addrs:    []string{os.Getenv("mongohost")},
-			Username: os.Getenv("mongouser"),
-			Password: os.Getenv("mongopass"),
+			Addrs:    []string{os.Getenv("MONGOHOST")},
+			Username: os.Getenv("MONGOUSER"),
+			Password: os.Getenv("MONGOPASS"),
 			Timeout:  60 * time.Second,
 		})
 		if err != nil {
@@ -34,9 +33,9 @@ func GetSession() *mgo.Session {
 func createDbSession() {
 	var err error
 	session, err = mgo.DialWithInfo(&mgo.DialInfo{
-		Addrs:    []string{os.Getenv("mongohost")},
-		Username: os.Getenv("mongouser"),
-		Password: os.Getenv("mongopass"),
+		Addrs:    []string{os.Getenv("MONGOHOST")},
+		Username: os.Getenv("MONGOUSER"),
+		Password: os.Getenv("MONGOPASS"),
 		Timeout:  60 * time.Second,
 	})
 	if err != nil {

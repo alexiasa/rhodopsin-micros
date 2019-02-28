@@ -1,14 +1,14 @@
 version: '3'
 services:
   db:
-    image: mongo:latest
+    build: ./db/
     env_file:
       - ./db/db.env
-    ports:
-      - "27017:27017"
-  ips:
+    expose:
+      - "27017"
+  web:
     build: ./ips/
     ports:
-      - "80:8080"
+      - "80:9080"
     env_file:
       - ./ips/ips.env
