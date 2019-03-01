@@ -9,6 +9,9 @@ services:
   web:
     build: ./ips/
     ports:
-      - "80:9080"
+      - "4000:80"
     env_file:
       - ./ips/ips.env
+    command: sh -c './wait-for.sh db:27017 -t 10 -- $GOPATH/src/rhodopsin-micros/ips/ips'
+    depends_on:
+      - db

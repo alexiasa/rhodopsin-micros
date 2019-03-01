@@ -17,11 +17,10 @@ WORKDIR $GOPATH/src/rhodopsin-micros/ips
 RUN dep ensure && go build .
 
 # Make executables executable.
-# RUN chmod +x $GOPATH/src/rhodopsin-micros/ips/*
+RUN chmod +x $GOPATH/src/rhodopsin-micros/ips/ips && chmod +x $GOPATH/src/rhodopsin-micros/ips/wait-for.sh
 
 # Run ips when the container starts.
 ENTRYPOINT $GOPATH/src/rhodopsin-micros/ips/ips
-#CMD $GOPATH/src/rhodopsin-micros/ips
 
 # Service listens on port 80.
 EXPOSE 80
