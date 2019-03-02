@@ -28,3 +28,6 @@ _testmain.go
 
 # Env Variable Declarations
 *.env
+
+# Configs
+conf.json
