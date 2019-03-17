@@ -1,6 +1,6 @@
 package controllers
 
-import "rhodopsin-micros/ips/models"
+import "github.com/alexiasa/rhodopsin-micros/ips/models"
 
 // JSON Resource Models
 

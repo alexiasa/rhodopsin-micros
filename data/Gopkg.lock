@@ -19,14 +19,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:041696ff42795e1bf21e52b0dc3985bbd4608916aa38459096b1ab9ac836d319"
+  digest = "1:34283c1bcfe295d0fdb2a60e07da067c3b68857afdc84a75b1fb5cf4bc8ac3c8"
   name = "github.com/alexiasa/rhodopsin-micros"
   packages = [
-    "ips/common",
     "ips/controllers",
-    "ips/data",
     "ips/models",
-    "ips/routers",
   ]
   pruneopts = "UT"
   revision = "1606ed70d194a44ba4f3d27048817347f954e916"
@@ -64,22 +61,6 @@
   revision = "bca2e7f09a178fd36b034107a00e2323bca6a82e"
 
 [[projects]]
-  digest = "1:ca59b1175189b3f0e9f1793d2c350114be36eaabbe5b9f554b35edee1de50aea"
-  name = "github.com/gorilla/mux"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "a7962380ca08b5a188038c69871b8d3fbdf31e89"
-  version = "v1.7"
-
-[[projects]]
-  digest = "1:d688f4ad71b5dfad95c2d74cb0feac09f8f3c32ae5cecc078230dbdeece39e53"
-  name = "github.com/urfave/negroni"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "c6a59be0ce122566695fbd5e48a77f8f10c8a63a"
-  version = "v1.0.0"
-
-[[projects]]
   digest = "1:c193bfa3b9101f25aee71caa75e03ef77b0dfda6b3389d9a32b70a8e9a5a053e"
   name = "github.com/williballenthin/govt"
   packages = ["."]
@@ -93,7 +74,7 @@
   name = "golang.org/x/net"
   packages = ["context"]
   pruneopts = "UT"
-  revision = "92fc7df08ae7536330f5a21328292abfa70520a8"
+  revision = "16b79f2e4e95ea23b2bf9903c9809ff7b013ce85"
 
 [[projects]]
   branch = "v2"
@@ -114,16 +95,9 @@
   analyzer-version = 1
   input-imports = [
     "github.com/ChimeraCoder/anaconda",
-    "github.com/alexiasa/rhodopsin-micros/ips/common",
     "github.com/alexiasa/rhodopsin-micros/ips/controllers",
-    "github.com/alexiasa/rhodopsin-micros/ips/data",
     "github.com/alexiasa/rhodopsin-micros/ips/models",
-    "github.com/alexiasa/rhodopsin-micros/ips/routers",
-    "github.com/gorilla/mux",
-    "github.com/urfave/negroni",
     "github.com/williballenthin/govt",
-    "gopkg.in/mgo.v2",
-    "gopkg.in/mgo.v2/bson",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1

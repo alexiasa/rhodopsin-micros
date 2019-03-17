@@ -2,7 +2,7 @@ package data
 
 import "C"
 import (
-	"rhodopsin-micros/ips/models"
+	"github.com/alexiasa/rhodopsin-micros/ips/models"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )

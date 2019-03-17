@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 	"github.com/urfave/negroni"
-	"rhodopsin-micros/ips/routers"
+	"github.com/alexiasa/rhodopsin-micros/ips/routers"
 )
 
 func main() {
