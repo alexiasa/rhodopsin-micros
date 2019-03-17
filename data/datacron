@@ -1,0 +1,2 @@
+30 * * * * $GOPATH/src/github.com/alexiasa/rhodopsin-micros/data/data
+# Don't remove the empty line at the end of this file. It is required to run the cron job

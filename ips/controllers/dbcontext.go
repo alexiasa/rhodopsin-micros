@@ -2,7 +2,7 @@ package controllers
 
 import ("gopkg.in/mgo.v2"
 	"os"
-"rhodopsin-micros/ips/common"
+"github.com/alexiasa/rhodopsin-micros/ips/common"
 )
 
 // Struct used for maintaining HTTP Request Context

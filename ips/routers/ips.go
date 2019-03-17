@@ -2,7 +2,7 @@ package routers
 
 import (
 	"github.com/gorilla/mux"
-	"rhodopsin-micros/ips/controllers"
+	"github.com/alexiasa/rhodopsin-micros/ips/controllers"
 )
 
 // SetIpRoutes configures routes for ip entity

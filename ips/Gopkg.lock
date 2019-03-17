@@ -2,6 +2,20 @@
 
 
 [[projects]]
+  branch = "master"
+  digest = "1:041696ff42795e1bf21e52b0dc3985bbd4608916aa38459096b1ab9ac836d319"
+  name = "github.com/alexiasa/rhodopsin-micros"
+  packages = [
+    "ips/common",
+    "ips/controllers",
+    "ips/data",
+    "ips/models",
+    "ips/routers",
+  ]
+  pruneopts = "UT"
+  revision = "1606ed70d194a44ba4f3d27048817347f954e916"
+
+[[projects]]
   digest = "1:ca59b1175189b3f0e9f1793d2c350114be36eaabbe5b9f554b35edee1de50aea"
   name = "github.com/gorilla/mux"
   packages = ["."]
@@ -35,6 +49,11 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/alexiasa/rhodopsin-micros/ips/common",
+    "github.com/alexiasa/rhodopsin-micros/ips/controllers",
+    "github.com/alexiasa/rhodopsin-micros/ips/data",
+    "github.com/alexiasa/rhodopsin-micros/ips/models",
+    "github.com/alexiasa/rhodopsin-micros/ips/routers",
     "github.com/gorilla/mux",
     "github.com/urfave/negroni",
     "gopkg.in/mgo.v2",
