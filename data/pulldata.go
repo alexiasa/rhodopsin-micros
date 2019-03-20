@@ -48,9 +48,9 @@ func pullData() {
 		for _, addr := range ipaddrs {
 			if addr != "" {
 				// try to get info from vt about it
-				results := getReport(addr)
+				i, m, a, l := getReport(addr)
 				// create document for ip based on what was returned
-				createDocument(results)
+				createDocument(i, m, a, l)
 				addr = "{'ipaddr': '" + addr + "'},"
 				_, err := f.WriteString(addr)
 				if err != nil {
