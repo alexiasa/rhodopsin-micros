@@ -6,11 +6,6 @@ import (
 
 type (
 
-//  Location struct {
-//    Lat       int           `json:"lat"`
-//    Lon       int           `json:"lon"`
-//  }
-
   IpDetails struct {
     Id        bson.ObjectId `bson:"_id,omitempty" json:"id"`
     Ipaddr    string        `json:"ipaddr"`

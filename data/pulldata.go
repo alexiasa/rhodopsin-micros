@@ -10,6 +10,7 @@ import (
 	"log"
 	"net/url"
 	"os"
+	models2 "rhodopsin-micros/ips/models"
 )
 
 
@@ -69,8 +70,8 @@ func createDocument(ipaddr string, mal bool, asn string, location string) {
 	col := context.DbCollection("ips")
 
 	// Insert Data
-	err := col.Insert(&models.IpDetails{Ipaddr: ipaddr, Asn: asn, Location: location, })
-
+	// err := col.Insert(&models.IpDetails{Ipaddr: ipaddr, Asn: asn, Location: location, })
+	err := col.Insert(&models.IpDetails{Ipaddr: ipaddr, Asn: asn, Location: location, Malicious: mal })
 	if err != nil {
 		panic(err)
 	}
@@ -83,16 +84,21 @@ func check(e error) {
 		panic(e)
 	}
 }
-// accept an IP addr string. return the IP, malicious boolean value (whether or not the address was found in VT), and the \
-// inferred location as a Location struct object.
+
+// accept an IP addr string. return the IP, malicious boolean value (whether or not the address was found in VT), the asn,
+// and the inferred location as a string object.
 
 func getReport (ip string) (string, bool, string, string)  {
 
 	var apikey string = os.Getenv("VT_API_KEY")
 	var apiurl string = os.Getenv("VT_API_URL")
+	var vmal bool
+	var vloc string
+	var vasn string
 
 	if ip == "" {
 		log.Fatalf("there was no IP")
+		return "0", false, "0", "0"
 	}
 	c, err := govt.New(govt.SetApikey(apikey), govt.SetUrl(apiurl))
 	check(err)
@@ -104,22 +110,28 @@ func getReport (ip string) (string, bool, string, string)  {
 
 	j, err := json.MarshalIndent(r, "", "    ")
 
+	var dat map[string]interface{}
+
+	// example :  num := dat["num"].(float64)
+
 	if err := json.Unmarshal(j, govt.IpReport{}) ; err != nil {
 		panic(err)
+		return "0", false, "0", "0"
+
 	} else {
 
+		if dat["response_code"].(int) == 0 {
+			vmal = false
+		} else {
+			vmal = true
+		}
+
+		vasn = dat["asn"].(string)
+		vloc = dat["country"].(string)
+
+		os.Stdout.Write(j)
+		return ip, vmal, vasn, vloc
 	}
 
-
-	check(err)
-
-
-	fmt.Printf("IP Report: ")
-	os.Stdout.Write(j)
-
-
-}
-
-func setDetails() {
 
 }
