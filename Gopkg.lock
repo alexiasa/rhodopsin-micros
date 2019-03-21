@@ -18,8 +18,8 @@
   revision = "c5a927568de7aad8a58127d80bcd36ca4e71e454"
 
 [[projects]]
-  branch = "master"
-  digest = "1:041696ff42795e1bf21e52b0dc3985bbd4608916aa38459096b1ab9ac836d319"
+  branch = "develop"
+  digest = "1:5f87cbe7404e85a250cbd3302a9427bbed41f7bdb9db5ee40e97776f191e5013"
   name = "github.com/alexiasa/rhodopsin-micros"
   packages = [
     "ips/common",
@@ -29,7 +29,7 @@
     "ips/routers",
   ]
   pruneopts = "UT"
-  revision = "1606ed70d194a44ba4f3d27048817347f954e916"
+  revision = "80d6b48eb5d1aeb87d87045d673398ebcf2cd85e"
 
 [[projects]]
   branch = "master"
